@@ -6,7 +6,7 @@ export default function Annotation(props: Props) {
     return (
         <div>
             <p className="text-center text-lg mt-4">
-                AI Object Status: <span className="text-cyan-600 font-bold">{props.status}</span>
+                AI Object Status: <Status status={props.status}></Status>
             </p>
             <div className="text-left text-lg mt-4 px-12 py-4 bg-gray-200">
                 <ul>
@@ -14,7 +14,7 @@ export default function Annotation(props: Props) {
                         <span className="font-bold text-cyan-600">&quot;no&quot;</span>: お使いのブラウザでは利用できません
                     </li>
                     <li>
-                        <span className="font-bold text-cyan-600">&quot;after-download&quot;</span>: ブラウザで利用できますが、AIのインストールが完了していません
+                        <span className="font-bold text-cyan-600">&quot;after-download&quot;</span>: ブラウザで利用できますが、AIモデルのインストールが完了していません
                     </li>
                     <li>
                         <span className="font-bold text-cyan-600">&quot;readily&quot;</span>: お使いのブラウザで利用できます
@@ -29,4 +29,10 @@ export default function Annotation(props: Props) {
             </p>
         </div>
     );
+}
+
+function Status({ status }: { status: string }) {
+    return (
+        <span className={(status === "readily" ? "text-cyan-600" : "text-red-600") + " text-2xl font-bold"}>{status}</span>
+    )
 }

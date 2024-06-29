@@ -14,7 +14,7 @@ export default function GeminiNanoExampleContainer() {
     })
 
     return (
-        <div className="flex flex-col items-center justify-center">
+        <div className="my-8 flex flex-col items-center justify-center">
             <Title />
             <Annotation status={canCreateSession}></Annotation>
             <Form ai={ai}></Form>
