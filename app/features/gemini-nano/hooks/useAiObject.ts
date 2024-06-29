@@ -1,8 +1,8 @@
 export type AiObject = {
     canCreateGenericSession: () => "readily" | "after-download" | "no",
     canCreateTextSession: () => "readily" | "after-download" | "no",
-    createGenericSession: () => { prompt: (prompt: string) => Promise<string>, promptStreaming: (prompt: string) => ReadableStream<string> },
-    createTextSession: () => { prompt: (prompt: string) => Promise<string>, promptStreaming: (prompt: string) => ReadableStream<string> },
+    createGenericSession: () => { prompt: (prompt: string) => Promise<string>, promptStreaming: (prompt: string) => AsyncIterable<string> },
+    createTextSession: () => { prompt: (prompt: string) => Promise<string>, promptStreaming: (prompt: string) => AsyncIterable<string> },
 }
 
 export default function useAiObject() {

@@ -1,6 +1,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { AiObject } from "../hooks/useAiObject";
 import { useState } from "react";
+import ReactMarkdown from "react-markdown";
 
 type Props = {
     ai: AiObject | null
@@ -18,18 +19,32 @@ export default function Form(props: Props) {
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         setIsGenerating(true)
         const session = await props.ai?.createTextSession();
+        if (session === undefined) {
+            setIsGenerating(false)
+            return
+        }
 
-        const firstStepPrompt = `
-        ${data.prompt}`
-        const firstStepResult = await session?.prompt(firstStepPrompt) ?? ""
+        const firstStepPrompt = `${data.prompt}`
+        const firstStepReader = await session.promptStreaming(firstStepPrompt)
+        if (firstStepReader === undefined) {
+            setIsGenerating(false)
+            return
+        }
+
+        let firstStepResult = ""
+        for await (const value of firstStepReader) {
+            firstStepResult = value
+            setGeneratedText(value)
+        }
 
         const secondStepPrompt = `
-        Please translate bellow text to Japanese.\n
+        Please translate bellow text to Japanese.\n${firstStepResult}`
+        const secondStepReader = await session.promptStreaming(secondStepPrompt)
 
-        ${firstStepResult}`
-        const secondStepResult = await session?.prompt(secondStepPrompt) ?? ""
+        for await (const value of secondStepReader) {
+            setGeneratedText(value)
+        }
 
-        setGeneratedText(secondStepResult)
         setIsGenerating(false)
     };
     return (
@@ -43,7 +58,7 @@ export default function Form(props: Props) {
             </form>
             <p className="w-full text-center font-bold bg-teal-50 text-teal-700 mb-4">{isGenerating ? "生成中..." : ""}</p>
             <p className="bg-gray-100 w-full p-8 rounded-md">
-                {generatedText}
+                <ReactMarkdown>{generatedText}</ReactMarkdown>
             </p>
         </div>
     )
