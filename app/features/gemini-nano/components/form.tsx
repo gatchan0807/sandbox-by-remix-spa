@@ -1,4 +1,4 @@
-import { SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, set, useForm } from "react-hook-form";
 import { AiObject } from "../hooks/useAiObject";
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
@@ -17,35 +17,40 @@ export default function Form(props: Props) {
     const [isGenerating, setIsGenerating] = useState<boolean>(false)
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
-        setIsGenerating(true)
-        const session = await props.ai?.createTextSession();
-        if (session === undefined) {
+        try {
+            setIsGenerating(true)
+            const session = await props.ai?.createTextSession();
+            if (session === undefined) {
+                setIsGenerating(false)
+                return
+            }
+
+            const firstStepPrompt = `${data.prompt}`
+            const firstStepReader = await session.promptStreaming(firstStepPrompt)
+            if (firstStepReader === undefined) {
+                setIsGenerating(false)
+                return
+            }
+
+            let firstStepResult = ""
+            for await (const value of firstStepReader) {
+                firstStepResult = value
+                setGeneratedText(value)
+            }
+
+            const secondStepPrompt = `Please translate bellow text to Japanese.\n${firstStepResult}`
+            const secondStepReader = await session.promptStreaming(secondStepPrompt)
+
+            for await (const value of secondStepReader) {
+                setGeneratedText(value)
+            }
+
             setIsGenerating(false)
-            return
-        }
-
-        const firstStepPrompt = `${data.prompt}`
-        const firstStepReader = await session.promptStreaming(firstStepPrompt)
-        if (firstStepReader === undefined) {
+        } catch (e) {
+            setGeneratedText(`生成中にエラーが発生しました`)
+        } finally {
             setIsGenerating(false)
-            return
         }
-
-        let firstStepResult = ""
-        for await (const value of firstStepReader) {
-            firstStepResult = value
-            setGeneratedText(value)
-        }
-
-        const secondStepPrompt = `
-        Please translate bellow text to Japanese.\n${firstStepResult}`
-        const secondStepReader = await session.promptStreaming(secondStepPrompt)
-
-        for await (const value of secondStepReader) {
-            setGeneratedText(value)
-        }
-
-        setIsGenerating(false)
     };
     return (
         <div className="w-1/2">
