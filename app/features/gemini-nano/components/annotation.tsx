@@ -1,12 +1,21 @@
+import { useState, useEffect } from "react";
+import { AiObject } from "../hooks/useAiObject";
+
 type Props = {
-    status: string
+    ai: AiObject | null
 };
 
 export default function Annotation(props: Props) {
+    const [canCreateSession, setCanCreateSession] = useState("no")
+    useEffect(() => {
+        (async () => {
+            setCanCreateSession(await props.ai?.canCreateGenericSession() ?? "no");
+        })()
+    })
     return (
         <div>
             <p className="text-center text-lg mt-4">
-                AI Object Status: <Status status={props.status}></Status>
+                AI Object Status: <Status status={canCreateSession}></Status>
             </p>
             <div className="text-left text-lg mt-4 px-12 py-4 bg-gray-200">
                 <ul>

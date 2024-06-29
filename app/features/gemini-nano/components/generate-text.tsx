@@ -1,7 +1,8 @@
-import { SubmitHandler, useForm } from "react-hook-form";
-import { AiObject } from "../hooks/useAiObject";
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
+import { SubmitHandler, useForm } from "react-hook-form";
+
+import { AiObject } from "../hooks/useAiObject";
 
 type Props = {
     ai: AiObject | null
@@ -11,7 +12,7 @@ type Inputs = {
     prompt: string
 }
 
-export default function Form(props: Props) {
+export default function GenerateText(props: Props) {
     const { handleSubmit, register } = useForm<Inputs>();
     const [generatedText, setGeneratedText] = useState<string>("")
     const [isGenerating, setIsGenerating] = useState<boolean>(false)

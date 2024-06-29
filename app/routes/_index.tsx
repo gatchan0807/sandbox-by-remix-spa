@@ -16,8 +16,16 @@ export default function Index() {
           <a
             className="text-blue-700 underline visited:text-purple-900"
             target="_blank"
-            href="./gemini-nano">
-            Gemini nano sandbox
+            href="./gemini-nano/generate-text">
+            Gemini nano sandbox (generate text)
+          </a>
+        </li>
+        <li>
+          <a
+            className="text-blue-700 underline visited:text-purple-900"
+            target="_blank"
+            href="./gemini-nano/summarize">
+            Gemini nano sandbox (summarize)
           </a>
         </li>
       </ul>
