@@ -1,4 +1,4 @@
-import { SubmitHandler, set, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { AiObject } from "../hooks/useAiObject";
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
@@ -56,7 +56,7 @@ export default function Form(props: Props) {
         <div className="w-1/2">
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center">
                 <label htmlFor="prompt" className="font-bold">プロンプト</label>
-                <input placeholder="プロンプト入れてみよう" className="w-full border-b-2 border-blue-900" {...register("prompt")} />
+                <input placeholder="英語プロンプトを入れてみよう" className="w-full border-b-2 border-blue-900" {...register("prompt")} />
                 <button type="submit" className="w-1/3 mx-auto my-4 bg-teal-500 text-white rounded-sm py-2 active:bg-teal-400">
                     生成開始
                 </button>
