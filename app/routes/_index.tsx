@@ -16,20 +16,8 @@ export default function Index() {
           <a
             className="text-blue-700 underline visited:text-purple-900"
             target="_blank"
-            href="https://remix.run/guides/spa-mode"
-            rel="noreferrer"
-          >
-            SPA Mode Guide
-          </a>
-        </li>
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/docs"
-            rel="noreferrer"
-          >
-            Remix Docs
+            href="./gemini-nano">
+            Gemini nano sandbox
           </a>
         </li>
       </ul>
