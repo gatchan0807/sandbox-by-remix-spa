@@ -9,26 +9,42 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="font-sans p-4">
-      <h1 className="text-3xl">Welcome to Remix (SPA Mode)</h1>
-      <ul className="list-disc mt-4 pl-6 space-y-2">
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="./gemini-nano/generate-text">
-            Gemini nano sandbox (generate text)
-          </a>
-        </li>
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="./gemini-nano/summarize">
-            Gemini nano sandbox (summarize)
-          </a>
-        </li>
-      </ul>
+    <div className="my-8">
+      <h1 className="text-3xl text-center font-bold">Welcome to Sandbox page by <a
+        href="https://x.com/gatchan0807"
+        rel="noreferrer noopener" target="_blank"
+        className="text-blue-700 underline hover:text-blue-500"
+      >gatchan0807</a>
+      </h1>
+      <p className="w-1/2 my-4 mx-auto py-4 px-8 bg-gray-200 text-center">
+        <a
+          href="https://github.com/gatchan0807/sandbox-by-remix-spa"
+          rel="noreferrer noopener" target="_blank"
+          className="text-blue-700 underline hover:text-blue-500 font-bold"
+        >
+          Hosting on GitHub Pages
+        </a>
+      </p>
+      <div className="w-2/3 mx-auto border border-cyan-200 rounded-sm py-8 px-4">
+        <ul className="list-disc pl-6 space-y-2">
+          <li>
+            <a
+              className="text-blue-700 underline hover:text-blue-500"
+              target="_blank"
+              href="./gemini-nano/generate-text">
+              Gemini nano sandbox (generate text)
+            </a>
+          </li>
+          <li>
+            <a
+              className="text-blue-700 underline hover:text-blue-500"
+              target="_blank"
+              href="./gemini-nano/summarize">
+              Gemini nano sandbox (summarize)
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
