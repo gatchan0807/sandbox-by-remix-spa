@@ -61,14 +61,14 @@ Text:\n${data.prompt}`
 
 
     return (
-        <div className="w-1/2">
+        <div className="w-full">
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center gap-4">
-                <div className="flex flex-row gap-4">
-                    <div className="w-1/2">
+                <div className="flex flex-col lg:flex-row gap-4">
+                    <div className="lg:w-1/2">
                         <label htmlFor="prompt" className="font-bold">要約元</label>
                         <textarea className="w-full border-2 h-48 border-blue-900" {...register("prompt")} />
                     </div>
-                    <p className="bg-gray-100 w-1/2 p-8 rounded-md overflow-x-scroll">
+                    <p className="bg-gray-100 lg:w-1/2 p-8 rounded-md overflow-x-scroll">
                         <ReactMarkdown>{generatedText}</ReactMarkdown>
                     </p>
                 </div>

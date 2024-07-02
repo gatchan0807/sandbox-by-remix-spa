@@ -54,7 +54,7 @@ export default function GenerateText(props: Props) {
         }
     };
     return (
-        <div className="w-1/2">
+        <>
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center">
                 <label htmlFor="prompt" className="font-bold">プロンプト</label>
                 <input placeholder="英語プロンプトを入れてみよう" className="w-full border-b-2 border-blue-900" {...register("prompt")} />
@@ -66,6 +66,6 @@ export default function GenerateText(props: Props) {
             <p className="bg-gray-100 w-full p-8 rounded-md">
                 <ReactMarkdown>{generatedText}</ReactMarkdown>
             </p>
-        </div>
+        </>
     )
 }

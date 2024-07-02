@@ -16,7 +16,7 @@ export default function Index() {
         className="text-blue-700 underline hover:text-blue-500"
       >gatchan0807</a>
       </h1>
-      <p className="w-1/2 my-4 mx-auto py-4 px-8 bg-gray-200 text-center">
+      <p className="w-1/2 my-4 mx-auto text-center">
         <a
           href="https://github.com/gatchan0807/sandbox-by-remix-spa"
           rel="noreferrer noopener" target="_blank"
@@ -25,7 +25,7 @@ export default function Index() {
           Hosting on GitHub Pages
         </a>
       </p>
-      <div className="w-2/3 mx-auto border border-cyan-200 rounded-sm py-8 px-4">
+      <div className="w-2/3 mx-auto rounded bg-slate-100 py-8 px-4">
         <ul className="list-disc pl-6 space-y-2">
           <li>
             <a
