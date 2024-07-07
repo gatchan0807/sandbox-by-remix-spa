@@ -43,6 +43,14 @@ export default function Index() {
               Gemini nano sandbox (summarize)
             </a>
           </li>
+          <li>
+            <a
+              className="text-blue-700 underline hover:text-blue-500"
+              target="_blank"
+              href="./gemini-nano/free-prompts">
+              Gemini nano sandbox (free prompts)
+            </a>
+          </li>
         </ul>
       </div>
     </div>
