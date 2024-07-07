@@ -66,6 +66,7 @@ export default function FreePrompts(props: Props) {
                     <p className="bg-gray-100 p-8 break-all rounded-md overflow-x-scroll">
                         <ReactMarkdown>{prompt}</ReactMarkdown>
                     </p>
+                    <span className="font-bold">生成結果</span>
                     <p className="bg-gray-100 p-8 break-all rounded-md overflow-x-scroll">
                         <ReactMarkdown>{generatedText}</ReactMarkdown>
                     </p>
