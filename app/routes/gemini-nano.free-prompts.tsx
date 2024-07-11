@@ -13,7 +13,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div className="my-8 flex flex-col items-center justify-center">
-      <Title />
+      <Title contents="Gemini nano sandbox" />
       <GeminiNanoFreePromptsContainer />
     </div>
   );
