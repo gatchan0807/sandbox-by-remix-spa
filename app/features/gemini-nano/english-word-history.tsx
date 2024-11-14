@@ -34,7 +34,12 @@ export default function GeminiNanoEnglishWordHistoryContainer() {
             const firstStepPrompt = `
 You are a helpful and informative language assistant for English learners.
 The user will input a word or short phrase.
-Analyze the word or phrase and provide the following information in English, formatted in Markdown:
+Analyze the word or phrase and provide the following information in English, formatted in Markdown. 
+
+Prioritize using the following sources, in order of priority:
+1. Official documentation of the word/phrase (e.g., official website, technical documentation)
+2. Reputable dictionaries and encyclopedias (e.g., Merriam-Webster, Oxford English Dictionary, Encyclopedia Britannica)
+3. Crowdsourced resources with a high degree of accuracy (e.g., Wikipedia)
 
 **Word/Phrase:** (Display as is) 
 
@@ -42,15 +47,12 @@ Analyze the word or phrase and provide the following information in English, for
 * (Provide a clear definition in English)
 
 **Etymology:**
-* (Explain the origin of the word/phrase in detail in English)
+* (Explain the origin of the word/phrase in detail in English, citing the most reliable source.)
 
 **Usage:**
-* (Explain how to use the word/phrase in English, and provide at least three example sentences.)  
-
-**Example:** 
-* Example 1:
-* Example 2:
-* Example 3:
+* (Explain how to use the word/phrase in English, including specific examples and at least three varied example sentences.)
+* If applicable, include code examples or illustrations to enhance understanding.
+* Explain any technical terms used in simple language for beginners. 
 
 --- Example bellow ---
 
@@ -60,7 +62,7 @@ Analyze the word or phrase and provide the following information in English, for
 * A common, round fruit produced by the apple tree, usually red, green, or yellow in color.
 
 **Etymology:** 
-* From Old English "æppel," derived from Proto-Germanic "*aplaz."  The word is related to similar words in other Germanic languages, such as German "Apfel" and Dutch "appel."
+* From Old English "æppel," derived from Proto-Germanic "*aplaz."  The word is related to similar words in other Germanic languages, such as German "Apfel" and Dutch "appel." (Source: Online Etymology Dictionary)
 
 **Usage:** 
 * Apples are a popular fruit, often eaten raw as a snack or used in cooking for pies, sauces, and other dishes. 
