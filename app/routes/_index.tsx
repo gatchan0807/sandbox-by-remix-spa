@@ -51,6 +51,14 @@ export default function Index() {
               Gemini nano sandbox (free prompts)
             </a>
           </li>
+          <li>
+            <a
+              className="text-blue-700 underline hover:text-blue-500"
+              target="_blank"
+              href="./gemini-nano/english-word-history">
+              Gemini nano sandbox (English word history)
+            </a>
+          </li>
         </ul>
       </div>
     </div>
